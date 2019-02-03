@@ -29,6 +29,9 @@ The current version of io-enum requires Rust 1.30 or later.
 
 ```rust
 use io_enum::*;
+use std::fs::File;
+use std::io::{self, Write};
+use std::path::Path;
 
 #[derive(Read, BufRead, Write, Seek)]
 enum Either<A, B> {
@@ -36,13 +39,23 @@ enum Either<A, B> {
     B(B),
 }
 
-#[derive(Read, BufRead, Write, Seek)]
-enum Either3<A, B, C> {
-    A(A),
-    B(B),
-    C(C),
+fn foo(path: Option<&Path>) -> impl Write {
+    if let Some(path) = path {
+        Either::A(File::open(path).unwrap())
+    } else {
+        Either::B(io::stdout())
+    }
 }
 ```
+
+## Supported traits
+
+* [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html)
+* [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html)
+* [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
+* [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html)
+
+See [taiki-e/auto_enums#11](https://github.com/taiki-e/auto_enums/issues/11) for other traits.
 
 ## License
 
