@@ -25,6 +25,8 @@
 //! }
 //! ```
 //!
+//! See [auto_enums](https://github.com/taiki-e/auto_enums) for how to automate patterns like this.
+//!
 //! ## Supported traits
 //!
 //! * [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html)
@@ -32,7 +34,7 @@
 //! * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
 //! * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html)
 //!
-//! See [taiki-e/auto_enums#11](https://github.com/taiki-e/auto_enums/issues/11) for other traits.
+//! See [auto_enums#11](https://github.com/taiki-e/auto_enums/issues/11) for other traits.
 //!
 //! ## Crate Features
 //!
