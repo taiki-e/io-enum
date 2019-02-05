@@ -24,4 +24,4 @@ default = []
 read_initializer = []
 
 [dependencies]
-derive_utils = "0.6.2"
+derive_utils = "^0.6.3"
