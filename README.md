@@ -17,12 +17,6 @@ Add this to your `Cargo.toml`:
 io-enum = "0.1"
 ```
 
-Now, you can use io-enum:
-
-```rust
-use io_enum::*;
-```
-
 The current version of io-enum requires Rust 1.30 or later.
 
 ## Examples
