@@ -29,12 +29,12 @@
 //!
 //! ## Supported traits
 //!
-//! * [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html)
-//! * [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html)
-//! * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
-//! * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html)
+//! * [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/read.md)
+//! * [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/buf_read.md)
+//! * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/write.md)
+//! * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/seek.md)
 //!
-//! See [auto_enums#11](https://github.com/taiki-e/auto_enums/issues/11) for other traits.
+//! See [this issue](https://github.com/taiki-e/auto_enums/issues/11) for other traits.
 //!
 //! ## Crate Features
 //!
@@ -128,7 +128,7 @@ pub fn derive_write(input: TokenStream) -> TokenStream {
             #[inline]
             fn write_all(&mut self, buf: &[u8]) -> ::std::io::Result<()>;
             #[inline]
-            fn write_fmt(&mut self, fmt: ::std::fmt::Arguments) -> ::std::io::Result<()>;
+            fn write_fmt(&mut self, fmt: ::std::fmt::Arguments<'_>) -> ::std::io::Result<()>;
         }
     }
 }

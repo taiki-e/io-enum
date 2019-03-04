@@ -52,12 +52,12 @@ See [auto_enums](https://github.com/taiki-e/auto_enums) for how to automate patt
 
 ## Supported traits
 
-* [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html)
-* [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html)
-* [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
-* [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html)
+* [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) - [generated code](doc/read.md)
+* [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [generated code](doc/buf_read.md)
+* [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](doc/write.md)
+* [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](doc/seek.md)
 
-See [auto_enums#11](https://github.com/taiki-e/auto_enums/issues/11) for other traits.
+See [this issue](https://github.com/taiki-e/auto_enums/issues/11) for other traits.
 
 ## License
 
