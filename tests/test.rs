@@ -1,3 +1,4 @@
+#![cfg_attr(feature = "iovec", feature(iovec))]
 #![cfg_attr(feature = "read_initializer", feature(read_initializer))]
 #![deny(warnings)]
 #![deny(unsafe_code)]

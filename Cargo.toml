@@ -21,8 +21,13 @@ proc-macro = true
 
 [features]
 default = []
+# Implements `io::Read::read_vectored` and `io::Write::write_vectored`.
+iovec = []
 # Implements `io::Read::read_initializer`.
 read_initializer = []
 
 [dependencies]
 derive_utils = "^0.6.3"
+quote = "^0.6.8"
+syn = { version = "^0.15.22", features = ["full"] }
+

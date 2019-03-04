@@ -3,6 +3,7 @@
 //! ## Examples
 //!
 //! ```rust
+//! # #![cfg_attr(feature = "iovec", feature(iovec))]
 //! # #![cfg_attr(feature = "read_initializer", feature(read_initializer))]
 //! # extern crate io_enum;
 //! use io_enum::*;
@@ -38,6 +39,11 @@
 //!
 //! ## Crate Features
 //!
+//! * `iovec`
+//!   * Disabled by default.
+//!   * Implements `io::Read::read_vectored` and `io::Write::write_vectored`.
+//!   * This requires Rust Nightly and you need to enable the unstable [`iovec`](https://github.com/rust-lang/rust/issues/58452) feature gate.
+//!
 //! * `read_initializer`
 //!   * Disabled by default.
 //!   * Implements `io::Read::read_initializer`.
@@ -52,48 +58,64 @@
 
 extern crate derive_utils;
 extern crate proc_macro;
+extern crate quote;
+extern crate syn;
 
-use derive_utils::quick_derive;
+use derive_utils::{derive_trait, quick_derive, EnumData as Data};
 use proc_macro::TokenStream;
+use quote::quote;
+use syn::parse_quote;
 
-#[cfg(not(feature = "read_initializer"))]
-#[proc_macro_derive(Read)]
-pub fn derive_read(input: TokenStream) -> TokenStream {
-    quick_derive! {
-        input,
-        (::std::io::Read),
-        trait Read {
-            #[inline]
-            fn read(&mut self, buf: &mut [u8]) -> ::std::io::Result<usize>;
-            #[inline]
-            fn read_to_end(&mut self, buf: &mut ::std::vec::Vec<u8>) -> ::std::io::Result<usize>;
-            #[inline]
-            fn read_to_string(&mut self, buf: &mut ::std::string::String) -> ::std::io::Result<usize>;
-            #[inline]
-            fn read_exact(&mut self, buf: &mut [u8]) -> ::std::io::Result<()>;
+macro_rules! parse {
+    ($input:expr) => {
+        match syn::parse($input)
+            .map_err(derive_utils::Error::from)
+            .and_then(|item| Data::from_derive(&item))
+        {
+            Ok(data) => data,
+            Err(err) => return TokenStream::from(err.to_compile_error()),
         }
-    }
+    };
 }
 
-#[cfg(feature = "read_initializer")]
 #[proc_macro_derive(Read)]
 pub fn derive_read(input: TokenStream) -> TokenStream {
-    quick_derive! {
-        input,
-        (::std::io::Read),
-        trait Read {
-            #[inline]
-            fn read(&mut self, buf: &mut [u8]) -> ::std::io::Result<usize>;
-            #[inline]
-            fn read_to_end(&mut self, buf: &mut ::std::vec::Vec<u8>) -> ::std::io::Result<usize>;
-            #[inline]
-            fn read_to_string(&mut self, buf: &mut ::std::string::String) -> ::std::io::Result<usize>;
-            #[inline]
-            fn read_exact(&mut self, buf: &mut [u8]) -> ::std::io::Result<()>;
-            #[inline]
-            unsafe fn initializer(&self) -> ::std::io::Initializer;
-        }
-    }
+    #[cfg(not(feature = "iovec"))]
+    let vectored = quote!();
+    #[cfg(feature = "iovec")]
+    let vectored = quote! {
+        #[inline]
+        fn read_vectored(&mut self, bufs: &mut [::std::io::IoVecMut<'_>]) -> ::std::io::Result<usize>;
+    };
+
+    #[cfg(not(feature = "read_initializer"))]
+    let initializer = quote!();
+    #[cfg(feature = "read_initializer")]
+    let initializer = quote! {
+        #[inline]
+        unsafe fn initializer(&self) -> ::std::io::Initializer;
+    };
+
+    derive_trait!(
+        parse!(input),
+        parse_quote!(::std::io::Read),
+        parse_quote! {
+            trait Read {
+                #[inline]
+                fn read(&mut self, buf: &mut [u8]) -> ::std::io::Result<usize>;
+                #[inline]
+                fn read_to_end(&mut self, buf: &mut ::std::vec::Vec<u8>) -> ::std::io::Result<usize>;
+                #[inline]
+                fn read_to_string(&mut self, buf: &mut ::std::string::String) -> ::std::io::Result<usize>;
+                #[inline]
+                fn read_exact(&mut self, buf: &mut [u8]) -> ::std::io::Result<()>;
+                #vectored
+                #initializer
+            }
+        },
+    )
+    .unwrap_or_else(|e| e.to_compile_error())
+    .into()
 }
 
 #[proc_macro_derive(BufRead)]
@@ -116,20 +138,33 @@ pub fn derive_buf_read(input: TokenStream) -> TokenStream {
 
 #[proc_macro_derive(Write)]
 pub fn derive_write(input: TokenStream) -> TokenStream {
-    quick_derive! {
-        input,
-        (::std::io::Write),
-        trait Write {
-            #[inline]
-            fn write(&mut self, buf: &[u8]) -> ::std::io::Result<usize>;
-            #[inline]
-            fn flush(&mut self) -> ::std::io::Result<()>;
-            #[inline]
-            fn write_all(&mut self, buf: &[u8]) -> ::std::io::Result<()>;
-            #[inline]
-            fn write_fmt(&mut self, fmt: ::std::fmt::Arguments<'_>) -> ::std::io::Result<()>;
-        }
-    }
+    #[cfg(not(feature = "iovec"))]
+    let vectored = quote!();
+    #[cfg(feature = "iovec")]
+    let vectored = quote! {
+        #[inline]
+        fn write_vectored(&mut self, bufs: &[::std::io::IoVec<'_>]) -> ::std::io::Result<usize>;
+    };
+
+    derive_trait!(
+        parse!(input),
+        parse_quote!(::std::io::Write),
+        parse_quote! {
+            trait Write {
+                #[inline]
+                fn write(&mut self, buf: &[u8]) -> ::std::io::Result<usize>;
+                #[inline]
+                fn flush(&mut self) -> ::std::io::Result<()>;
+                #[inline]
+                fn write_all(&mut self, buf: &[u8]) -> ::std::io::Result<()>;
+                #[inline]
+                fn write_fmt(&mut self, fmt: ::std::fmt::Arguments<'_>) -> ::std::io::Result<()>;
+                #vectored
+            }
+        },
+    )
+    .unwrap_or_else(|e| e.to_compile_error())
+    .into()
 }
 
 #[proc_macro_derive(Seek)]
