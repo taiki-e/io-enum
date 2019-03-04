@@ -15,16 +15,13 @@ matrix:
     - rust: nightly
       script:
         - cargo test
-        - cargo test --release
         - cargo test --all-features
-        - cargo test --all-features --release
 
     - rust: nightly
       name: cargo test (minimal versions)
       script:
         - cargo update -Zminimal-versions
         - cargo test --all-features
-        - cargo test --all-features --release
 
     - rust: nightly
       name: cargo clippy
@@ -46,7 +43,6 @@ before_script:
 
 script:
   - cargo test
-  - cargo test --release
 
 notifications:
   email:
