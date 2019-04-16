@@ -50,7 +50,6 @@
 //!   * This requires Rust Nightly and you need to enable the unstable [`read_initializer`](https://github.com/rust-lang/rust/issues/42788) feature gate.
 //!
 
-#![crate_type = "proc-macro"]
 #![recursion_limit = "256"]
 #![doc(html_root_url = "https://docs.rs/io-enum/0.1.3")]
 #![deny(unsafe_code)]
