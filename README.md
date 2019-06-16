@@ -4,9 +4,9 @@
 [![version](https://img.shields.io/crates/v/io-enum.svg)](https://crates.io/crates/io-enum/)
 [![documentation](https://docs.rs/io-enum/badge.svg)](https://docs.rs/io-enum/)
 [![license](https://img.shields.io/crates/l/io-enum.svg)](https://crates.io/crates/io-enum/)
-[![Rustc Version](https://img.shields.io/badge/rustc-1.30+-lightgray.svg)](https://blog.rust-lang.org/2018/10/25/Rust-1.30.0.html)
+[![Rustc Version](https://img.shields.io/badge/rustc-1.31+-lightgray.svg)](https://blog.rust-lang.org/2018/12/06/Rust-1.31-and-rust-2018.html)
 
-\#\[derive(Read, BufRead, Write, Seek)\] for enums.
+\#\[derive(Read, Write, Seek, BufRead)\] for enums.
 
 ## Usage
 
@@ -17,7 +17,7 @@ Add this to your `Cargo.toml`:
 io-enum = "0.1"
 ```
 
-The current version of io-enum requires Rust 1.30 or later.
+The current io-enum requires Rust 1.31 or later.
 
 ## Examples
 
@@ -27,7 +27,7 @@ use std::fs::File;
 use std::io::{self, Write};
 use std::path::Path;
 
-#[derive(Read, BufRead, Write, Seek)]
+#[derive(Read, Write, Seek, BufRead)]
 enum Either<A, B> {
     A(A),
     B(B),
@@ -50,8 +50,6 @@ See [auto_enums](https://github.com/taiki-e/auto_enums) for how to automate patt
 * [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [generated code](doc/buf_read.md)
 * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](doc/write.md)
 * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](doc/seek.md)
-
-See [this issue](https://github.com/taiki-e/auto_enums/issues/11) for other traits.
 
 ## License
 

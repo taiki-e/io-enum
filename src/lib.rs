@@ -1,17 +1,15 @@
-//! \#\[derive(Read, BufRead, Write, Seek)\] for enums.
+//! \#\[derive(Read, Write, Seek, BufRead)\] for enums.
 //!
 //! ## Examples
 //!
 //! ```rust
-//! # #![cfg_attr(feature = "iovec", feature(iovec))]
 //! # #![cfg_attr(feature = "read_initializer", feature(read_initializer))]
-//! # extern crate io_enum;
 //! use io_enum::*;
 //! use std::fs::File;
 //! use std::io::{self, Write};
 //! use std::path::Path;
 //!
-//! #[derive(Read, BufRead, Write, Seek)]
+//! #[derive(Read, Write, Seek, BufRead)]
 //! enum Either<A, B> {
 //!     A(A),
 //!     B(B),
@@ -35,14 +33,7 @@
 //! * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/write.md)
 //! * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/seek.md)
 //!
-//! See [this issue](https://github.com/taiki-e/auto_enums/issues/11) for other traits.
-//!
 //! ## Crate Features
-//!
-//! * `iovec`
-//!   * Disabled by default.
-//!   * Implements `io::Read::read_vectored` and `io::Write::write_vectored`.
-//!   * This requires Rust Nightly and you need to enable the unstable [`iovec`](https://github.com/rust-lang/rust/issues/58452) feature gate.
 //!
 //! * `read_initializer`
 //!   * Disabled by default.
@@ -52,13 +43,14 @@
 
 #![recursion_limit = "256"]
 #![doc(html_root_url = "https://docs.rs/io-enum/0.1.3")]
-#![deny(unsafe_code)]
-#![deny(bare_trait_objects, elided_lifetimes_in_paths, unreachable_pub)]
+#![doc(test(attr(deny(warnings), allow(dead_code, unused_assignments, unused_variables))))]
+#![warn(unsafe_code)]
+#![warn(rust_2018_idioms, unreachable_pub)]
+#![warn(single_use_lifetimes)]
+#![warn(clippy::all, clippy::pedantic)]
+#![warn(clippy::nursery)]
 
-extern crate derive_utils;
 extern crate proc_macro;
-extern crate quote;
-extern crate syn;
 
 use derive_utils::{derive_trait, quick_derive, EnumData as Data};
 use proc_macro::TokenStream;
@@ -67,10 +59,7 @@ use syn::parse_quote;
 
 macro_rules! parse {
     ($input:expr) => {
-        match syn::parse($input)
-            .map_err(derive_utils::Error::from)
-            .and_then(|item| Data::from_derive(&item))
-        {
+        match syn::parse($input).and_then(|item| Data::from_derive(&item)) {
             Ok(data) => data,
             Err(err) => return TokenStream::from(err.to_compile_error()),
         }
@@ -79,12 +68,12 @@ macro_rules! parse {
 
 #[proc_macro_derive(Read)]
 pub fn derive_read(input: TokenStream) -> TokenStream {
-    #[cfg(not(feature = "iovec"))]
+    #[cfg(not(stable_1_36))]
     let vectored = quote!();
-    #[cfg(feature = "iovec")]
+    #[cfg(stable_1_36)]
     let vectored = quote! {
         #[inline]
-        fn read_vectored(&mut self, bufs: &mut [::std::io::IoVecMut<'_>]) -> ::std::io::Result<usize>;
+        fn read_vectored(&mut self, bufs: &mut [::std::io::IoSliceMut<'_>]) -> ::std::io::Result<usize>;
     };
 
     #[cfg(not(feature = "read_initializer"))]
@@ -137,12 +126,12 @@ pub fn derive_buf_read(input: TokenStream) -> TokenStream {
 
 #[proc_macro_derive(Write)]
 pub fn derive_write(input: TokenStream) -> TokenStream {
-    #[cfg(not(feature = "iovec"))]
+    #[cfg(not(stable_1_36))]
     let vectored = quote!();
-    #[cfg(feature = "iovec")]
+    #[cfg(stable_1_36)]
     let vectored = quote! {
         #[inline]
-        fn write_vectored(&mut self, bufs: &[::std::io::IoVec<'_>]) -> ::std::io::Result<usize>;
+        fn write_vectored(&mut self, bufs: &[::std::io::IoSlice<'_>]) -> ::std::io::Result<usize>;
     };
 
     derive_trait!(
