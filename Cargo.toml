@@ -10,7 +10,7 @@ documentation = "https://docs.rs/io-enum/"
 readme = "README.md"
 keywords = ["io", "derive", "enum"]
 categories = ["rust-patterns"]
-exclude = ["/.travis.yml"]
+exclude = ["/.travis.yml", "/bors.toml"]
 
 [badges]
 # https://github.com/rust-lang/crates.io/issues/1392
