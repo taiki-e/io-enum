@@ -1,15 +1,11 @@
-#![cfg_attr(feature = "iovec", feature(iovec))]
 #![cfg_attr(feature = "read_initializer", feature(read_initializer))]
-#![deny(warnings)]
-#![deny(unsafe_code)]
-#![deny(bare_trait_objects, elided_lifetimes_in_paths)]
+#![warn(unsafe_code)]
+#![warn(rust_2018_idioms)]
 #![allow(dead_code)]
-
-extern crate io_enum;
 
 use io_enum::*;
 
-#[derive(Read, BufRead, Write, Seek)]
+#[derive(Read, Write, Seek, BufRead)]
 enum Either<A, B> {
     A(A),
     B(B),
