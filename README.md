@@ -14,7 +14,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-io-enum = "0.1"
+io-enum = "0.2"
 ```
 
 The current io-enum requires Rust 1.31 or later.
