@@ -5,17 +5,12 @@ version = "0.2.0"
 authors = ["Taiki Endo <te316e89@gmail.com>"]
 edition = "2018"
 license = "Apache-2.0/MIT"
-description = "#[derive(Read, BufRead, Write, Seek)] for enums."
+description = "#[derive(Read, Write, Seek, BufRead)] for enums."
 repository = "https://github.com/taiki-e/io-enum"
 documentation = "https://docs.rs/io-enum/"
 readme = "README.md"
 keywords = ["io", "derive", "enum"]
 categories = ["rust-patterns"]
-exclude = ["/.travis.yml", "/bors.toml"]
-
-[badges]
-# https://github.com/rust-lang/crates.io/issues/1392
-# travis-ci = { repository = "taiki-e/io-enum" }
 
 [lib]
 proc-macro = true
