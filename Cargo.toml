@@ -19,6 +19,6 @@ proc-macro = true
 read_initializer = []
 
 [dependencies]
-derive_utils = "0.7.2"
+derive_utils = "0.8.0"
 quote = "0.6.8"
 syn = { version = "0.15.29", features = ["full"] }
