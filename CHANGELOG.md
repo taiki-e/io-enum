@@ -1,5 +1,7 @@
 # Unreleased
 
+# 0.2.1 - 2019-08-14
+
 * Updated `syn` and `quote` to 1.0.
 
 * Updated `derive_utils` to 0.9.
