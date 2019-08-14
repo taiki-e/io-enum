@@ -58,7 +58,7 @@ use syn::parse_quote;
 
 macro_rules! parse {
     ($input:expr) => {
-        match syn::parse::<syn::ItemEnum>($input).and_then(|item| Data::new(&item)) {
+        match syn::parse($input).and_then(|item: syn::ItemEnum| Data::new(&item)) {
             Ok(data) => data,
             Err(err) => return TokenStream::from(err.to_compile_error()),
         }
