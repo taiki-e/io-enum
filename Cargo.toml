@@ -6,10 +6,12 @@ edition = "2018"
 license = "Apache-2.0/MIT"
 repository = "https://github.com/taiki-e/io-enum"
 documentation = "https://docs.rs/io-enum/"
-readme = "README.md"
 keywords = ["io", "derive", "enum"]
 categories = ["rust-patterns"]
-description = "#[derive(Read, Write, Seek, BufRead)] for enums."
+readme = "README.md"
+description = """
+#[derive(Read, Write, Seek, BufRead)] for enums.
+"""
 
 [lib]
 proc-macro = true
