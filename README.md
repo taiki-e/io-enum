@@ -1,13 +1,10 @@
 # io-enum
 
-[![Build Status][azure-badge]][azure-url]
 [![Crates.io][crates-version-badge]][crates-url]
 [![Docs.rs][docs-badge]][docs-url]
 [![License][crates-license-badge]][crates-url]
 [![Minimum supported Rust version][rustc-badge]][rustc-url]
 
-[azure-badge]: https://dev.azure.com/taiki-e/taiki-e/_apis/build/status/taiki-e.io-enum?branchName=master
-[azure-url]: https://dev.azure.com/taiki-e/taiki-e/_build/latest?definitionId=8&branchName=master
 [crates-version-badge]: https://img.shields.io/crates/v/io-enum.svg
 [crates-license-badge]: https://img.shields.io/crates/l/io-enum.svg
 [crates-badge]: https://img.shields.io/crates/v/io-enum.svg
