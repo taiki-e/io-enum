@@ -1,13 +1,10 @@
 # io-enum
 
-[![ci-badge]][ci-url]
 [![crates-badge]][crates-url]
 [![docs-badge]][docs-url]
 [![license-badge]][license]
 [![rustc-badge]][rustc-url]
 
-[ci-badge]: https://github.com/taiki-e/io-enum/workflows/ci/badge.svg
-[ci-url]: https://github.com/taiki-e/io-enum/actions?workflow=ci
 [crates-badge]: https://img.shields.io/crates/v/io-enum.svg
 [crates-url]: https://crates.io/crates/io-enum/
 [docs-badge]: https://docs.rs/io-enum/badge.svg
