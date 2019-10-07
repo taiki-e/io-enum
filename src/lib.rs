@@ -5,9 +5,11 @@
 //! ```rust
 //! # #![cfg_attr(feature = "read_initializer", feature(read_initializer))]
 //! use io_enum::*;
-//! use std::fs::File;
-//! use std::io::{self, Write};
-//! use std::path::Path;
+//! use std::{
+//!     fs::File,
+//!     io::{self, Write},
+//!     path::Path,
+//! };
 //!
 //! #[derive(Read, Write, Seek, BufRead)]
 //! enum Either<A, B> {
@@ -39,7 +41,6 @@
 //!   * Disabled by default.
 //!   * Implements `io::Read::read_initializer`.
 //!   * This requires Rust Nightly and you need to enable the unstable [`read_initializer`](https://github.com/rust-lang/rust/issues/42788) feature gate.
-//!
 
 #![recursion_limit = "256"]
 #![doc(html_root_url = "https://docs.rs/io-enum/0.2.1")]
