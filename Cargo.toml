@@ -17,8 +17,6 @@ description = """
 proc-macro = true
 
 [features]
-# Implements `io::Read::read_initializer`.
-read_initializer = []
 
 [dependencies]
 derive_utils = "0.9"

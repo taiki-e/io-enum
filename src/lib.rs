@@ -3,7 +3,6 @@
 //! ## Examples
 //!
 //! ```rust
-//! # #![cfg_attr(feature = "read_initializer", feature(read_initializer))]
 //! use io_enum::*;
 //! use std::{
 //!     fs::File,
@@ -26,7 +25,7 @@
 //! }
 //! ```
 //!
-//! See [auto_enums](https://github.com/taiki-e/auto_enums) for how to automate patterns like this.
+//! See [auto_enums](https://github.com/taiki-e/auto_enums) crate for how to automate patterns like this.
 //!
 //! ## Supported traits
 //!
@@ -34,13 +33,6 @@
 //! * [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/buf_read.md)
 //! * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/write.md)
 //! * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/seek.md)
-//!
-//! ## Crate Features
-//!
-//! * `read_initializer`
-//!   * Disabled by default.
-//!   * Implements `io::Read::read_initializer`.
-//!   * This requires Rust Nightly and you need to enable the unstable [`read_initializer`](https://github.com/rust-lang/rust/issues/42788) feature gate.
 
 #![recursion_limit = "256"]
 #![doc(html_root_url = "https://docs.rs/io-enum/0.2.1")]
@@ -78,13 +70,7 @@ pub fn derive_read(input: TokenStream) -> TokenStream {
         fn read_vectored(&mut self, bufs: &mut [::std::io::IoSliceMut<'_>]) -> ::std::io::Result<usize>;
     };
 
-    #[cfg(not(feature = "read_initializer"))]
-    let initializer = quote!();
-    #[cfg(feature = "read_initializer")]
-    let initializer = quote! {
-        #[inline]
-        unsafe fn initializer(&self) -> ::std::io::Initializer;
-    };
+    // TODO: When `read_initializer` stabilized, add `initializer` conditionally.
 
     derive_trait!(
         parse!(input),
@@ -100,7 +86,6 @@ pub fn derive_read(input: TokenStream) -> TokenStream {
                 #[inline]
                 fn read_exact(&mut self, buf: &mut [u8]) -> ::std::io::Result<()>;
                 #vectored
-                #initializer
             }
         },
     )

@@ -1,5 +1,9 @@
 # Unreleased
 
+* [Removed unstable `"read_initializer"` feature.][7]
+
+[7]: https://github.com/taiki-e/io-enum/pull/7
+
 # 0.2.1 - 2019-08-14
 
 * Updated `syn` and `quote` to 1.0.
@@ -16,7 +20,7 @@
 
 # 0.1.3 - 2019-03-04
 
-* Add `"iovec"` crate feature.
+* Add `"iovec"` feature.
 
 * Add generated code examples.
 
