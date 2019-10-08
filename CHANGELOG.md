@@ -1,5 +1,7 @@
 # Unreleased
 
+# 0.2.2 - 2019-10-08
+
 * [Removed unstable `"read_initializer"` feature.][7]
 
 [7]: https://github.com/taiki-e/io-enum/pull/7
