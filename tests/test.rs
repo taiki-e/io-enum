@@ -1,4 +1,3 @@
-#![cfg_attr(feature = "read_initializer", feature(read_initializer))]
 #![warn(unsafe_code)]
 #![warn(rust_2018_idioms)]
 #![allow(dead_code)]
