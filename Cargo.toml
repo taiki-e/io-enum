@@ -13,6 +13,8 @@ description = """
 #[derive(Read, Write, Seek, BufRead)] for enums.
 """
 
+[workspace]
+
 [lib]
 proc-macro = true
 
