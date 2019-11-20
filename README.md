@@ -6,9 +6,9 @@
 [![rustc-badge]][rustc-url]
 
 [crates-badge]: https://img.shields.io/crates/v/io-enum.svg
-[crates-url]: https://crates.io/crates/io-enum/
+[crates-url]: https://crates.io/crates/io-enum
 [docs-badge]: https://docs.rs/io-enum/badge.svg
-[docs-url]: https://docs.rs/io-enum/
+[docs-url]: https://docs.rs/io-enum
 [license-badge]: https://img.shields.io/crates/l/io-enum.svg
 [license]: #license
 [rustc-badge]: https://img.shields.io/badge/rustc-1.31+-lightgray.svg
