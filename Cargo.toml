@@ -14,6 +14,9 @@ description = """
 #[derive(Read, Write, Seek, BufRead)] for enums.
 """
 
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
 [workspace]
 
 [lib]
