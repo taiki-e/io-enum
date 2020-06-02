@@ -9,7 +9,7 @@
 [crates-url]: https://crates.io/crates/io-enum
 [docs-badge]: https://docs.rs/io-enum/badge.svg
 [docs-url]: https://docs.rs/io-enum
-[license-badge]: https://img.shields.io/crates/l/io-enum.svg
+[license-badge]: https://img.shields.io/badge/license-Apache--2.0%20OR%20MIT-blue.svg
 [license]: #license
 [rustc-badge]: https://img.shields.io/badge/rustc-1.31+-lightgray.svg
 [rustc-url]: https://blog.rust-lang.org/2018/12/06/Rust-1.31-and-rust-2018.html

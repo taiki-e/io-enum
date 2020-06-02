@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
 
+## [0.2.3] - 2020-06-02
+
+* Updated `derive_utils` to 0.10.
+
 ## [0.2.2] - 2019-10-08
 
 * [Removed unstable `"read_initializer"` feature.][7]
@@ -44,7 +48,8 @@ This project adheres to [Semantic Versioning](https://semver.org).
 
 Initial release
 
-[Unreleased]: https://github.com/taiki-e/io-enum/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/taiki-e/io-enum/compare/v0.2.3...HEAD
+[0.2.3]: https://github.com/taiki-e/io-enum/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/taiki-e/io-enum/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/taiki-e/io-enum/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/taiki-e/io-enum/compare/v0.1.3...v0.2.0

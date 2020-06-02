@@ -35,7 +35,7 @@
 //! * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/seek.md)
 
 #![recursion_limit = "256"]
-#![doc(html_root_url = "https://docs.rs/io-enum/0.2.2")]
+#![doc(html_root_url = "https://docs.rs/io-enum/0.2.3")]
 #![doc(test(
     no_crate_inject,
     attr(deny(warnings, rust_2018_idioms, single_use_lifetimes), allow(dead_code))
