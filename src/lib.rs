@@ -34,7 +34,6 @@
 //! * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/write.md)
 //! * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/seek.md)
 
-#![recursion_limit = "256"]
 #![doc(html_root_url = "https://docs.rs/io-enum/0.2.3")]
 #![doc(test(
     no_crate_inject,
