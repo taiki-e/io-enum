@@ -1,6 +1,6 @@
 //! \#\[derive(Read, Write, Seek, BufRead)\] for enums.
 //!
-//! ## Examples
+//! # Examples
 //!
 //! ```rust
 //! use io_enum::*;
@@ -27,7 +27,7 @@
 //!
 //! See [auto_enums](https://github.com/taiki-e/auto_enums) crate for how to automate patterns like this.
 //!
-//! ## Supported traits
+//! # Supported traits
 //!
 //! * [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/read.md)
 //! * [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/buf_read.md)
