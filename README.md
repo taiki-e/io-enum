@@ -59,6 +59,18 @@ See [auto_enums](https://github.com/taiki-e/auto_enums) crate for how to automat
 * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](doc/write.md)
 * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](doc/seek.md)
 
+## Related Projects
+
+* [auto_enums]: A library for to allow multiple return types by automatically generated enum.
+* [derive_utils]: A procedural macro helper for easily writing [derives macros][proc-macro-derive] for enums.
+* [futures-enum]: \#\[derive(Future, Stream, Sink, AsyncRead, AsyncWrite, AsyncSeek, AsyncBufRead)\] for enums.
+* [iter-enum]: \#\[derive(Iterator, DoubleEndedIterator, ExactSizeIterator, Extend)\] for enums.
+
+[auto_enums]: https://github.com/taiki-e/auto_enums
+[derive_utils]: https://github.com/taiki-e/derive_utils
+[futures-enum]: https://github.com/taiki-e/futures-enum
+[iter-enum]: https://github.com/taiki-e/iter-enum
+
 ## License
 
 Licensed under either of
