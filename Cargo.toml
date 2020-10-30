@@ -22,6 +22,9 @@ targets = ["x86_64-unknown-linux-gnu"]
 [lib]
 proc-macro = true
 
+[build-dependencies]
+autocfg = "1"
+
 [dependencies]
 derive_utils = { version = "0.10" }
 quote = "1"
