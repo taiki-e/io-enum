@@ -91,7 +91,6 @@ pub fn derive_read(input: TokenStream) -> TokenStream {
             #vectored
         }
     })
-    .unwrap_or_else(|e| e.to_compile_error())
     .into()
 }
 
@@ -138,7 +137,6 @@ pub fn derive_write(input: TokenStream) -> TokenStream {
             #vectored
         }
     })
-    .unwrap_or_else(|e| e.to_compile_error())
     .into()
 }
 
