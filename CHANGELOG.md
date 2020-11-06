@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
 
+## [0.2.4] - 2020-11-06
+
 * Update `derive_utils` to 0.11.
 
 ## [0.2.3] - 2020-06-02
@@ -50,7 +52,8 @@ This project adheres to [Semantic Versioning](https://semver.org).
 
 Initial release
 
-[Unreleased]: https://github.com/taiki-e/io-enum/compare/v0.2.3...HEAD
+[Unreleased]: https://github.com/taiki-e/io-enum/compare/v0.2.4...HEAD
+[0.2.4]: https://github.com/taiki-e/io-enum/compare/v0.2.3...v0.2.4
 [0.2.3]: https://github.com/taiki-e/io-enum/compare/v0.2.2...v0.2.3
 [0.2.2]: https://github.com/taiki-e/io-enum/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/taiki-e/io-enum/compare/v0.2.0...v0.2.1
