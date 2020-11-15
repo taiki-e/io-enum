@@ -31,9 +31,11 @@ The current io-enum requires Rust 1.31 or later.
 
 ```rust
 use io_enum::*;
-use std::fs::File;
-use std::io::{self, Write};
-use std::path::Path;
+use std::{
+    fs::File,
+    io::{self, Write},
+    path::Path,
+};
 
 #[derive(Read, Write, Seek, BufRead)]
 enum Either<A, B> {
