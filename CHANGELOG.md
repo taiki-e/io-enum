@@ -4,7 +4,15 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org).
 
+<!--
+Note: In this file, do not use the hard wrap in the middle of a sentence for compatibility with GitHub comment style markdown rendering.
+-->
+
 ## [Unreleased]
+
+## [0.2.6] - 2021-01-05
+
+- Exclude unneeded files from crates.io.
 
 ## [0.2.5] - 2020-12-29
 
@@ -56,7 +64,8 @@ This project adheres to [Semantic Versioning](https://semver.org).
 
 Initial release
 
-[Unreleased]: https://github.com/taiki-e/io-enum/compare/v0.2.5...HEAD
+[Unreleased]: https://github.com/taiki-e/io-enum/compare/v0.2.6...HEAD
+[0.2.6]: https://github.com/taiki-e/io-enum/compare/v0.2.5...v0.2.6
 [0.2.5]: https://github.com/taiki-e/io-enum/compare/v0.2.4...v0.2.5
 [0.2.4]: https://github.com/taiki-e/io-enum/compare/v0.2.3...v0.2.4
 [0.2.3]: https://github.com/taiki-e/io-enum/compare/v0.2.2...v0.2.3
