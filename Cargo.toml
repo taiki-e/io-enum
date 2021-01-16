@@ -8,7 +8,6 @@ repository = "https://github.com/taiki-e/io-enum"
 documentation = "https://docs.rs/io-enum"
 keywords = ["io", "derive", "enum"]
 categories = ["rust-patterns"]
-readme = "README.md"
 exclude = ["/.github", "/scripts"]
 description = """
 #[derive(Read, Write, Seek, BufRead)] for enums.
