@@ -3,12 +3,13 @@
 //! # Examples
 //!
 //! ```rust
-//! use io_enum::*;
 //! use std::{
 //!     fs::File,
 //!     io::{self, Write},
 //!     path::Path,
 //! };
+//!
+//! use io_enum::*;
 //!
 //! #[derive(Read, Write, Seek, BufRead)]
 //! enum Either<A, B> {
