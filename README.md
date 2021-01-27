@@ -14,7 +14,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-io-enum = "0.2"
+io-enum = "1"
 ```
 
 *Compiler support: requires rustc 1.31+*
@@ -22,12 +22,13 @@ io-enum = "0.2"
 ## Examples
 
 ```rust
-use io_enum::*;
 use std::{
     fs::File,
     io::{self, Write},
     path::Path,
 };
+
+use io_enum::*;
 
 #[derive(Read, Write, Seek, BufRead)]
 enum Either<A, B> {
@@ -44,8 +45,7 @@ fn func(path: Option<&Path>) -> impl Write {
 }
 ```
 
-See [auto_enums] crate for how to
-automate patterns like this.
+See [auto_enums] crate for how to automate patterns like this.
 
 ## Supported traits
 

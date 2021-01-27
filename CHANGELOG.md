@@ -10,6 +10,10 @@ Note: In this file, do not use the hard wrap in the middle of a sentence for com
 
 ## [Unreleased]
 
+## [1.0.0] - 2021-01-27
+
+No public API changes from the previous release.
+
 ## [0.2.6] - 2021-01-05
 
 - Exclude unneeded files from crates.io.
@@ -62,7 +66,8 @@ Note: In this file, do not use the hard wrap in the middle of a sentence for com
 
 Initial release
 
-[Unreleased]: https://github.com/taiki-e/io-enum/compare/v0.2.6...HEAD
+[Unreleased]: https://github.com/taiki-e/io-enum/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/taiki-e/io-enum/compare/v0.2.6...v1.0.0
 [0.2.6]: https://github.com/taiki-e/io-enum/compare/v0.2.5...v0.2.6
 [0.2.5]: https://github.com/taiki-e/io-enum/compare/v0.2.4...v0.2.5
 [0.2.4]: https://github.com/taiki-e/io-enum/compare/v0.2.3...v0.2.4
