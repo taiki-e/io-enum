@@ -17,7 +17,7 @@
 //!     B(B),
 //! }
 //!
-//! fn foo(path: Option<&Path>) -> impl Write {
+//! fn func(path: Option<&Path>) -> impl Write {
 //!     if let Some(path) = path {
 //!         Either::A(File::open(path).unwrap())
 //!     } else {
@@ -31,10 +31,12 @@
 //!
 //! # Supported traits
 //!
-//! * [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/read.md)
-//! * [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/buf_read.md)
-//! * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/write.md)
-//! * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](https://github.com/taiki-e/io-enum/blob/master/doc/seek.md)
+//! * [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) - [generated code](https://github.com/taiki-e/io-enum/blob/HEAD/doc/read.md)
+//! * [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [generated code](https://github.com/taiki-e/io-enum/blob/HEAD/doc/buf_read.md)
+//! * [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](https://github.com/taiki-e/io-enum/blob/HEAD/doc/write.md)
+//! * [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](https://github.com/taiki-e/io-enum/blob/HEAD/doc/seek.md)
+//!
+//! [auto_enums]: https://github.com/taiki-e/auto_enums
 
 #![doc(test(
     no_crate_inject,

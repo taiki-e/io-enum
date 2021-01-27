@@ -35,7 +35,7 @@ enum Either<A, B> {
     B(B),
 }
 
-fn foo(path: Option<&Path>) -> impl Write {
+fn func(path: Option<&Path>) -> impl Write {
     if let Some(path) = path {
         Either::A(File::open(path).unwrap())
     } else {
@@ -44,7 +44,7 @@ fn foo(path: Option<&Path>) -> impl Write {
 }
 ```
 
-See [auto_enums](https://github.com/taiki-e/auto_enums) crate for how to
+See [auto_enums] crate for how to
 automate patterns like this.
 
 ## Supported traits
@@ -65,6 +65,7 @@ automate patterns like this.
 [derive_utils]: https://github.com/taiki-e/derive_utils
 [futures-enum]: https://github.com/taiki-e/futures-enum
 [iter-enum]: https://github.com/taiki-e/iter-enum
+[proc-macro-derive]: https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros
 
 ## License
 
