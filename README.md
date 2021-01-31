@@ -1,10 +1,10 @@
 # io-enum
 
-[![crates.io](https://img.shields.io/crates/v/io-enum.svg?style=flat-square&logo=rust)](https://crates.io/crates/io-enum)
+[![crates.io](https://img.shields.io/crates/v/io-enum?style=flat-square&logo=rust)](https://crates.io/crates/io-enum)
 [![docs.rs](https://img.shields.io/badge/docs.rs-io--enum-blue?style=flat-square)](https://docs.rs/io-enum)
-[![license](https://img.shields.io/badge/license-Apache--2.0_OR_MIT-blue.svg?style=flat-square)](#license)
-[![rustc](https://img.shields.io/badge/rustc-1.31+-blue.svg?style=flat-square)](https://www.rust-lang.org)
-[![build status](https://img.shields.io/github/workflow/status/taiki-e/io-enum/CI/main?style=flat-square)](https://github.com/taiki-e/io-enum/actions?query=workflow%3ACI+branch%3Amain)
+[![license](https://img.shields.io/badge/license-Apache--2.0_OR_MIT-blue?style=flat-square)](#license)
+[![rustc](https://img.shields.io/badge/rustc-1.31+-blue?style=flat-square&logo=rust)](https://www.rust-lang.org)
+[![build status](https://img.shields.io/github/workflow/status/taiki-e/io-enum/CI/main?style=flat-square&logo=github)](https://github.com/taiki-e/io-enum/actions)
 
 \#\[derive(Read, Write, Seek, BufRead)\] for enums.
 
