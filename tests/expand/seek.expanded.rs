@@ -1,23 +1,8 @@
-# [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html)
-
-When deriving for enum like the following:
-
-```rust
-#[derive(Seek)]
+use io_enum::*;
 enum Enum<A, B> {
     A(A),
     B(B),
 }
-```
-
-Code like this will be generated:
-
-```rust
-enum Enum<A, B> {
-    A(A),
-    B(B),
-}
-
 impl<A, B> ::std::io::Seek for Enum<A, B>
 where
     A: ::std::io::Seek,
@@ -31,4 +16,4 @@ where
         }
     }
 }
-```
+fn main() {}

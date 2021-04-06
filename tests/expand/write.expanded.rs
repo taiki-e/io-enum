@@ -1,23 +1,8 @@
-# [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
-
-When deriving for enum like the following:
-
-```rust
-#[derive(Write)]
+use io_enum::*;
 enum Enum<A, B> {
     A(A),
     B(B),
 }
-```
-
-Code like this will be generated:
-
-```rust
-enum Enum<A, B> {
-    A(A),
-    B(B),
-}
-
 impl<A, B> ::std::io::Write for Enum<A, B>
 where
     A: ::std::io::Write,
@@ -30,7 +15,6 @@ where
             Enum::B(x) => ::std::io::Write::write(x, buf),
         }
     }
-
     #[inline]
     fn flush(&mut self) -> ::std::io::Result<()> {
         match self {
@@ -38,7 +22,6 @@ where
             Enum::B(x) => ::std::io::Write::flush(x),
         }
     }
-
     #[inline]
     fn write_all(&mut self, buf: &[u8]) -> ::std::io::Result<()> {
         match self {
@@ -46,7 +29,6 @@ where
             Enum::B(x) => ::std::io::Write::write_all(x, buf),
         }
     }
-
     #[inline]
     fn write_fmt(&mut self, fmt: ::std::fmt::Arguments<'_>) -> ::std::io::Result<()> {
         match self {
@@ -54,5 +36,12 @@ where
             Enum::B(x) => ::std::io::Write::write_fmt(x, fmt),
         }
     }
+    #[inline]
+    fn write_vectored(&mut self, bufs: &[::std::io::IoSlice<'_>]) -> ::std::io::Result<usize> {
+        match self {
+            Enum::A(x) => ::std::io::Write::write_vectored(x, bufs),
+            Enum::B(x) => ::std::io::Write::write_vectored(x, bufs),
+        }
+    }
 }
-```
+fn main() {}

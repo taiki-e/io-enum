@@ -49,10 +49,10 @@ See [auto_enums] crate for how to automate patterns like this.
 
 ## Supported traits
 
-- [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) - [generated code](docs/read.md)
-- [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [generated code](docs/buf_read.md)
-- [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [generated code](docs/write.md)
-- [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [generated code](docs/seek.md)
+- [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) - [example](tests/expand/read.rs) | [generated code](tests/expand/read.expanded.rs)
+- [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [example](tests/expand/buf_read.rs) | [generated code](tests/expand/buf_read.expanded.rs)
+- [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [example](tests/expand/write.rs) | [generated code](tests/expand/write.expanded.rs)
+- [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [example](tests/expand/seek.rs) | [generated code](tests/expand/seek.expanded.rs)
 
 ## Related Projects
 
