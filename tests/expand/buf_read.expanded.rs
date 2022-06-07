@@ -23,14 +23,21 @@ where
         }
     }
     #[inline]
-    fn read_until(&mut self, byte: u8, buf: &mut ::std::vec::Vec<u8>) -> ::std::io::Result<usize> {
+    fn read_until(
+        &mut self,
+        byte: u8,
+        buf: &mut ::std::vec::Vec<u8>,
+    ) -> ::std::io::Result<usize> {
         match self {
             Enum::A(x) => ::std::io::BufRead::read_until(x, byte, buf),
             Enum::B(x) => ::std::io::BufRead::read_until(x, byte, buf),
         }
     }
     #[inline]
-    fn read_line(&mut self, buf: &mut ::std::string::String) -> ::std::io::Result<usize> {
+    fn read_line(
+        &mut self,
+        buf: &mut ::std::string::String,
+    ) -> ::std::io::Result<usize> {
         match self {
             Enum::A(x) => ::std::io::BufRead::read_line(x, buf),
             Enum::B(x) => ::std::io::BufRead::read_line(x, buf),
