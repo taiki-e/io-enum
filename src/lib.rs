@@ -59,9 +59,9 @@ use syn::{parse_macro_input, parse_quote};
 
 #[proc_macro_derive(Read)]
 pub fn derive_read(input: TokenStream) -> TokenStream {
-    #[cfg(stable_lt_1_36)]
+    #[cfg(io_enum_no_iovec)]
     let vectored = quote!();
-    #[cfg(not(stable_lt_1_36))]
+    #[cfg(not(io_enum_no_iovec))]
     let vectored = quote! {
         #[inline]
         fn read_vectored(
@@ -112,9 +112,9 @@ pub fn derive_buf_read(input: TokenStream) -> TokenStream {
 
 #[proc_macro_derive(Write)]
 pub fn derive_write(input: TokenStream) -> TokenStream {
-    #[cfg(stable_lt_1_36)]
+    #[cfg(io_enum_no_iovec)]
     let vectored = quote!();
-    #[cfg(not(stable_lt_1_36))]
+    #[cfg(not(io_enum_no_iovec))]
     let vectored = quote! {
         #[inline]
         fn write_vectored(&mut self, bufs: &[::std::io::IoSlice<'_>]) -> ::std::io::Result<usize>;
