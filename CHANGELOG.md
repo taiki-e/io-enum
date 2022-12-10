@@ -10,6 +10,8 @@ Note: In this file, do not use the hard wrap in the middle of a sentence for com
 
 ## [Unreleased]
 
+- Update `derive_utils` to 0.12.
+
 ## [1.0.1] - 2021-04-06
 
 - Documentation improvements.
