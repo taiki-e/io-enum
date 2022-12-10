@@ -10,6 +10,8 @@ Note: In this file, do not use the hard wrap in the middle of a sentence for com
 
 ## [Unreleased]
 
+## [1.0.2] - 2022-12-10
+
 - Update `derive_utils` to 0.12.
 
 ## [1.0.1] - 2021-04-06
@@ -72,7 +74,8 @@ No public API changes from the previous release.
 
 Initial release
 
-[Unreleased]: https://github.com/taiki-e/io-enum/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/taiki-e/io-enum/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/taiki-e/io-enum/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/taiki-e/io-enum/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/taiki-e/io-enum/compare/v0.2.6...v1.0.0
 [0.2.6]: https://github.com/taiki-e/io-enum/compare/v0.2.5...v0.2.6
