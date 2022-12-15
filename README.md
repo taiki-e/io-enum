@@ -4,7 +4,7 @@
 [![docs.rs](https://img.shields.io/badge/docs.rs-io--enum-blue?style=flat-square&logo=docs.rs)](https://docs.rs/io-enum)
 [![license](https://img.shields.io/badge/license-Apache--2.0_OR_MIT-blue?style=flat-square)](#license)
 [![rustc](https://img.shields.io/badge/rustc-1.31+-blue?style=flat-square&logo=rust)](https://www.rust-lang.org)
-[![build status](https://img.shields.io/github/workflow/status/taiki-e/io-enum/CI/main?style=flat-square&logo=github)](https://github.com/taiki-e/io-enum/actions)
+[![build status](https://img.shields.io/github/actions/workflow/status/taiki-e/io-enum/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/taiki-e/io-enum/actions)
 
 \#\[derive(Read, Write, Seek, BufRead)\] for enums.
 
