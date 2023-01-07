@@ -49,16 +49,16 @@ See [auto_enums] crate for how to automate patterns like this.
 
 ## Supported traits
 
-- [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) - [example](tests/expand/read.rs) | [generated code](tests/expand/read.expanded.rs)
-- [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [example](tests/expand/buf_read.rs) | [generated code](tests/expand/buf_read.expanded.rs)
-- [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [example](tests/expand/write.rs) | [generated code](tests/expand/write.expanded.rs)
-- [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [example](tests/expand/seek.rs) | [generated code](tests/expand/seek.expanded.rs)
+- [`Read`](https://doc.rust-lang.org/std/io/trait.Read.html) - [example](https://github.com/taiki-e/io-enum/blob/HEAD/tests/expand/read.rs) | [generated code](https://github.com/taiki-e/io-enum/blob/HEAD/tests/expand/read.expanded.rs)
+- [`BufRead`](https://doc.rust-lang.org/std/io/trait.BufRead.html) - [example](https://github.com/taiki-e/io-enum/blob/HEAD/tests/expand/buf_read.rs) | [generated code](https://github.com/taiki-e/io-enum/blob/HEAD/tests/expand/buf_read.expanded.rs)
+- [`Write`](https://doc.rust-lang.org/std/io/trait.Write.html) - [example](https://github.com/taiki-e/io-enum/blob/HEAD/tests/expand/write.rs) | [generated code](https://github.com/taiki-e/io-enum/blob/HEAD/tests/expand/write.expanded.rs)
+- [`Seek`](https://doc.rust-lang.org/std/io/trait.Seek.html) - [example](https://github.com/taiki-e/io-enum/blob/HEAD/tests/expand/seek.rs) | [generated code](https://github.com/taiki-e/io-enum/blob/HEAD/tests/expand/seek.expanded.rs)
 
 ## Related Projects
 
 - [auto_enums]: A library for to allow multiple return types by automatically generated enum.
 - [derive_utils]: A procedural macro helper for easily writing [derives macros][proc-macro-derive] for enums.
-- [iter-enum]: \#\[derive(Iterator, DoubleEndedIterator, ExactSizeIterator, Extend)\] for enums.
+- [iter-enum]: \#\[derive(Iterator, DoubleEndedIterator, ExactSizeIterator, FusedIterator, Extend)\] for enums.
 
 [auto_enums]: https://github.com/taiki-e/auto_enums
 [derive_utils]: https://github.com/taiki-e/derive_utils
