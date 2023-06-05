@@ -7,7 +7,7 @@ license = "Apache-2.0 OR MIT"
 repository = "https://github.com/taiki-e/io-enum"
 keywords = ["io", "derive", "enum"]
 categories = ["rust-patterns"]
-exclude = ["/.*", "/tools"]
+exclude = ["/.*", "/tools", "/DEVELOPMENT.md"]
 description = """
 #[derive(Read, Write, Seek, BufRead)] for enums.
 """
