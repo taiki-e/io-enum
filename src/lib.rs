@@ -75,10 +75,6 @@ See [auto_enums] crate for how to automate patterns like this.
 #![warn(rust_2018_idioms, single_use_lifetimes, unreachable_pub, clippy::pedantic)]
 #![allow(clippy::doc_markdown)]
 
-// older compilers require explicit `extern crate`.
-#[allow(unused_extern_crates)]
-extern crate proc_macro;
-
 use derive_utils::{derive_trait, quick_derive};
 use proc_macro::TokenStream;
 use syn::{parse_macro_input, parse_quote};
