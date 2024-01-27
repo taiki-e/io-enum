@@ -73,15 +73,16 @@ See [auto_enums] crate for how to automate patterns like this.
 ))]
 #![forbid(unsafe_code)]
 
-use derive_utils::{derive_trait, quick_derive};
+use derive_utils::quick_derive;
 use proc_macro::TokenStream;
-use syn::{parse_macro_input, parse_quote};
 
 #[proc_macro_derive(Read)]
 pub fn derive_read(input: TokenStream) -> TokenStream {
     // TODO: When `read_buf` stabilized, add `read_buf` conditionally.
 
-    derive_trait(&parse_macro_input!(input), parse_quote!(::std::io::Read), None, parse_quote! {
+    quick_derive! {
+        input,
+        ::std::io::Read,
         trait Read {
             #[inline]
             fn read(&mut self, buf: &mut [u8]) -> ::std::io::Result<usize>;
@@ -99,8 +100,7 @@ pub fn derive_read(input: TokenStream) -> TokenStream {
                 &mut self, bufs: &mut [::std::io::IoSliceMut<'_>],
             ) -> ::std::io::Result<usize>;
         }
-    })
-    .into()
+    }
 }
 
 #[proc_macro_derive(BufRead)]
@@ -125,7 +125,9 @@ pub fn derive_buf_read(input: TokenStream) -> TokenStream {
 
 #[proc_macro_derive(Write)]
 pub fn derive_write(input: TokenStream) -> TokenStream {
-    derive_trait(&parse_macro_input!(input), parse_quote!(::std::io::Write), None, parse_quote! {
+    quick_derive! {
+        input,
+        ::std::io::Write,
         trait Write {
             #[inline]
             fn write(&mut self, buf: &[u8]) -> ::std::io::Result<usize>;
@@ -141,8 +143,7 @@ pub fn derive_write(input: TokenStream) -> TokenStream {
                 bufs: &[::std::io::IoSlice<'_>],
             ) -> ::std::io::Result<usize>;
         }
-    })
-    .into()
+    }
 }
 
 #[proc_macro_derive(Seek)]

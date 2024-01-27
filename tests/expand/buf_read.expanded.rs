@@ -11,15 +11,15 @@ where
     #[inline]
     fn fill_buf(&mut self) -> ::std::io::Result<&[u8]> {
         match self {
-            Enum::A(x) => ::std::io::BufRead::fill_buf(x),
-            Enum::B(x) => ::std::io::BufRead::fill_buf(x),
+            Enum::A(x) => <A as ::std::io::BufRead>::fill_buf(x),
+            Enum::B(x) => <B as ::std::io::BufRead>::fill_buf(x),
         }
     }
     #[inline]
     fn consume(&mut self, amt: usize) {
         match self {
-            Enum::A(x) => ::std::io::BufRead::consume(x, amt),
-            Enum::B(x) => ::std::io::BufRead::consume(x, amt),
+            Enum::A(x) => <A as ::std::io::BufRead>::consume(x, amt),
+            Enum::B(x) => <B as ::std::io::BufRead>::consume(x, amt),
         }
     }
     #[inline]
@@ -29,8 +29,8 @@ where
         buf: &mut ::std::vec::Vec<u8>,
     ) -> ::std::io::Result<usize> {
         match self {
-            Enum::A(x) => ::std::io::BufRead::read_until(x, byte, buf),
-            Enum::B(x) => ::std::io::BufRead::read_until(x, byte, buf),
+            Enum::A(x) => <A as ::std::io::BufRead>::read_until(x, byte, buf),
+            Enum::B(x) => <B as ::std::io::BufRead>::read_until(x, byte, buf),
         }
     }
     #[inline]
@@ -39,8 +39,8 @@ where
         buf: &mut ::std::string::String,
     ) -> ::std::io::Result<usize> {
         match self {
-            Enum::A(x) => ::std::io::BufRead::read_line(x, buf),
-            Enum::B(x) => ::std::io::BufRead::read_line(x, buf),
+            Enum::A(x) => <A as ::std::io::BufRead>::read_line(x, buf),
+            Enum::B(x) => <B as ::std::io::BufRead>::read_line(x, buf),
         }
     }
 }
