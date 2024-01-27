@@ -78,14 +78,18 @@ use proc_macro::TokenStream;
 
 #[proc_macro_derive(Read)]
 pub fn derive_read(input: TokenStream) -> TokenStream {
-    // TODO: When `read_buf` stabilized, add `read_buf` conditionally.
-
+    // TODO: Add is_read_vectored once stabilized https://github.com/rust-lang/rust/issues/69941
+    // TODO: Add read_buf,read_buf_exact once stabilized https://github.com/rust-lang/rust/issues/78485
     quick_derive! {
         input,
         ::std::io::Read,
         trait Read {
             #[inline]
             fn read(&mut self, buf: &mut [u8]) -> ::std::io::Result<usize>;
+            #[inline]
+            fn read_vectored(
+                &mut self, bufs: &mut [::std::io::IoSliceMut<'_>],
+            ) -> ::std::io::Result<usize>;
             #[inline]
             fn read_to_end(&mut self, buf: &mut ::std::vec::Vec<u8>) -> ::std::io::Result<usize>;
             #[inline]
@@ -95,10 +99,43 @@ pub fn derive_read(input: TokenStream) -> TokenStream {
             ) -> ::std::io::Result<usize>;
             #[inline]
             fn read_exact(&mut self, buf: &mut [u8]) -> ::std::io::Result<()>;
+        }
+    }
+}
+
+#[proc_macro_derive(Write)]
+pub fn derive_write(input: TokenStream) -> TokenStream {
+    // TODO: Add is_write_vectored once stabilized https://github.com/rust-lang/rust/issues/69941
+    // TODO: Add write_all_vectored once stabilized https://github.com/rust-lang/rust/issues/70436
+    quick_derive! {
+        input,
+        ::std::io::Write,
+        trait Write {
             #[inline]
-            fn read_vectored(
-                &mut self, bufs: &mut [::std::io::IoSliceMut<'_>],
+            fn write(&mut self, buf: &[u8]) -> ::std::io::Result<usize>;
+            #[inline]
+            fn write_vectored(
+                &mut self,
+                bufs: &[::std::io::IoSlice<'_>],
             ) -> ::std::io::Result<usize>;
+            #[inline]
+            fn flush(&mut self) -> ::std::io::Result<()>;
+            #[inline]
+            fn write_all(&mut self, buf: &[u8]) -> ::std::io::Result<()>;
+            #[inline]
+            fn write_fmt(&mut self, fmt: ::std::fmt::Arguments<'_>) -> ::std::io::Result<()>;
+        }
+    }
+}
+
+#[proc_macro_derive(Seek)]
+pub fn derive_seek(input: TokenStream) -> TokenStream {
+    quick_derive! {
+        input,
+        ::std::io::Seek,
+        trait Seek {
+            #[inline]
+            fn seek(&mut self, pos: ::std::io::SeekFrom) -> ::std::io::Result<u64>;
         }
     }
 }
@@ -119,41 +156,6 @@ pub fn derive_buf_read(input: TokenStream) -> TokenStream {
             ) -> ::std::io::Result<usize>;
             #[inline]
             fn read_line(&mut self, buf: &mut ::std::string::String) -> ::std::io::Result<usize>;
-        }
-    }
-}
-
-#[proc_macro_derive(Write)]
-pub fn derive_write(input: TokenStream) -> TokenStream {
-    quick_derive! {
-        input,
-        ::std::io::Write,
-        trait Write {
-            #[inline]
-            fn write(&mut self, buf: &[u8]) -> ::std::io::Result<usize>;
-            #[inline]
-            fn flush(&mut self) -> ::std::io::Result<()>;
-            #[inline]
-            fn write_all(&mut self, buf: &[u8]) -> ::std::io::Result<()>;
-            #[inline]
-            fn write_fmt(&mut self, fmt: ::std::fmt::Arguments<'_>) -> ::std::io::Result<()>;
-            #[inline]
-            fn write_vectored(
-                &mut self,
-                bufs: &[::std::io::IoSlice<'_>],
-            ) -> ::std::io::Result<usize>;
-        }
-    }
-}
-
-#[proc_macro_derive(Seek)]
-pub fn derive_seek(input: TokenStream) -> TokenStream {
-    quick_derive! {
-        input,
-        ::std::io::Seek,
-        trait Seek {
-            #[inline]
-            fn seek(&mut self, pos: ::std::io::SeekFrom) -> ::std::io::Result<u64>;
         }
     }
 }
