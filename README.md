@@ -6,7 +6,8 @@
 [![msrv](https://img.shields.io/badge/msrv-1.56-blue?style=flat-square&logo=rust)](https://www.rust-lang.org)
 [![github actions](https://img.shields.io/github/actions/workflow/status/taiki-e/io-enum/ci.yml?branch=main&style=flat-square&logo=github)](https://github.com/taiki-e/io-enum/actions)
 
-<!-- tidy:crate-doc:start -->
+<!-- tidy:sync-markdown-to-rustdoc:start:src/lib.rs -->
+
 \#\[derive(Read, Write, Seek, BufRead)\] for enums.
 
 ## Usage
@@ -64,7 +65,7 @@ See [auto_enums] crate for how to automate patterns like this.
 [iter-enum]: https://github.com/taiki-e/iter-enum
 [proc-macro-derive]: https://doc.rust-lang.org/reference/procedural-macros.html#derive-macros
 
-<!-- tidy:crate-doc:end -->
+<!-- tidy:sync-markdown-to-rustdoc:end -->
 
 ## License
 
