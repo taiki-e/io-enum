@@ -25,7 +25,7 @@ use std::{
     path::Path,
 };
 
-use io_enum::*;
+use io_enum::{Read, Write, Seek, BufRead};
 
 #[derive(Read, Write, Seek, BufRead)]
 enum Either<A, B> {
@@ -67,10 +67,12 @@ See [auto_enums] crate for how to automate patterns like this.
 
 #![doc(test(
     no_crate_inject,
-    attr(
-        deny(warnings, rust_2018_idioms, single_use_lifetimes),
-        allow(dead_code, unused_variables)
-    )
+    attr(allow(
+        dead_code,
+        unused_variables,
+        clippy::undocumented_unsafe_blocks,
+        clippy::unused_trait_names,
+    ))
 ))]
 #![forbid(unsafe_code)]
 

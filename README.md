@@ -28,7 +28,7 @@ use std::{
     path::Path,
 };
 
-use io_enum::*;
+use io_enum::{Read, Write, Seek, BufRead};
 
 #[derive(Read, Write, Seek, BufRead)]
 enum Either<A, B> {
